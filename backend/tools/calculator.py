@@ -1,7 +1,7 @@
 # Calculator Tool
 
 import math
-from langchain.tools import BaseTool
+from langchain_core.tools.base import BaseTool
 from pydantic import BaseModel, Field
 from typing import Type
 
@@ -10,8 +10,8 @@ class CalculatorInput(BaseModel):
     expression: str = Field(description="Mathematical expression to evaluate")
 
 class CalculatorTool(BaseTool):
-    name = "calculator"
-    description = "Useful for performing mathematical calculations"
+    name: str = "calculator"
+    description: str = "Useful for performing mathematical calculations"
     args_schema: Type[BaseModel] = CalculatorInput
     
     def _run(self, expression: str) -> str:
