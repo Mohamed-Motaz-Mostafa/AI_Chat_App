@@ -78,7 +78,7 @@ class RAGSystem:
         else:
             print("No vector store found to delete.")
 
-    async def process_document(self, file, filename: str) -> Dict[str]:
+    async def process_document(self, file, filename: str) -> Dict[str, Any]:
         """Process a document and store it in the vector database.
         Args:
             file (file): The uploaded file object.
