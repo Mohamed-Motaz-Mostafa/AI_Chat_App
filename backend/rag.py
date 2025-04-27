@@ -3,13 +3,12 @@
 import os
 import tempfile
 from typing import List, Dict, Any
-from langchain.document_loaders import TextLoader, PyPDFLoader
-
+from langchain_community.document_loaders import TextLoader , PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.text_splitter import TokenTextSplitter
 
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
 from langchain.schema import Document
 
 class RAGSystem:
@@ -25,9 +24,8 @@ class RAGSystem:
         """Process a document and store it in the vector database."""
         # Create a temporary file to store the uploaded content
         with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(filename)[1]) as temp_file:
-            temp_file.write(await file.read())
+            temp_file.write(file.read())
             temp_path = temp_file.name
-            # Because PyPDFLoader and TextLoader expect a file path, not a file object or bytes stream.
         
         try:
             # Load the document based on file type
@@ -51,8 +49,8 @@ class RAGSystem:
             
         except Exception as e:
             return {"status": "error", "message": f"Error processing document: {str(e)}"}
+        
         finally:
-
             # Clean up the temporary file
             os.unlink(temp_path)
     
