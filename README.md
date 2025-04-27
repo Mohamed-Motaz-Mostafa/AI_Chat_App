@@ -24,16 +24,16 @@ project/
     │   ├── components/
     │   │   ├── ChatWindow.js   # Chat UI component
     │   │   └── FileUpload.js   # Document upload component
-    |   │   └── DocumentList.js # Document list component
-    |   │   └── DocumentList.css # Document list styles
+    │   │   └── DocumentList.js # Document list component
+    │   │   └── DocumentList.css # Document list styles
     │   └── api.js              # API calls to backend
-    |   └── App.css             # Main styles
+    │   └── App.css             # Main styles
     │   └── index.js            # Entry point for React app
     │   └── index.css           # Global styles
     └── public/
-    |    ├── index.html         # HTML template for React app
-    |    ├── manifest.json      # Web app manifest
-    |    └── dexalo-logo.png    # App logo
+    │    ├── index.html         # HTML template for React app
+    │    ├── manifest.json      # Web app manifest
+    │    └── dexalo-logo.png    # App logo
     └── package.json            # Frontend dependencies
 ```
 
