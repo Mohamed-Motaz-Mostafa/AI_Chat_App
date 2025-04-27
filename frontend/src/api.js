@@ -29,3 +29,22 @@ export const sendMessage = async (message) => {
     throw error;
   }
 };
+
+export const deleteAllDocuments = async () => {
+  try {
+    const response = await axios.delete(`${API_URL}/delete`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting documents:', error);
+    throw error;
+  }
+};
+
+
+export const getDocuments = async () => {
+  const response = await fetch('http://localhost:8000/documents');
+  if (!response.ok) {
+    throw new Error('Failed to fetch documents');
+  }
+  return response.json();
+};
