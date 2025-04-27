@@ -46,14 +46,10 @@ async def upload_document(file: UploadFile):
 async def chat(request: ChatRequest):
     """Endpoint to process a chat message and return a response."""
     # Retrieve relevant context from RAG
-    context_docs = await rag_system.retrieve_context(request.message)
+    context_docs = await rag_system.retrieve_context(request.message , 2)
     
 
-    # print("***********************************************")
-    # print("Context documents retrieved:", context_docs)
-    # print("***********************************************")
-    # print(request)
-    # print("***********************************************")
+
 
     # Process the query using the agent
     result = ai_agent.process_query(request.message, context_docs)
@@ -63,6 +59,31 @@ async def chat(request: ChatRequest):
         response=result["response"],
         used_tools=result["used_tools"]
     )
+
+
+# Add this to your main.py in the FastAPI backend
+
+@app.delete("/delete")
+async def delete_documents():
+    """Endpoint to delete all documents from the vector store."""
+    try:
+        # Reset the vector store
+        rag_system.delete_vector_store()
+        return {"status": "success", "message": "All documents have been deleted"}
+    except Exception as e:
+        return {"status": "error", "message": f"Error deleting documents: {str(e)}"}
+
+
+@app.get("/documents")
+async def get_documents():
+    """Endpoint to get the list of documents in the vector store."""
+    try:
+        doc_summary = rag_system.get_docs_summary()
+        # Convert to a list format that's easier to work with in frontend
+        documents = [{"name": source, "chunks": count} for source, count in doc_summary.items()]
+        return {"status": "success", "documents": documents}
+    except Exception as e:
+        return {"status": "error", "message": f"Error retrieving documents: {str(e)}"}
 
 if __name__ == "__main__":
     import uvicorn
