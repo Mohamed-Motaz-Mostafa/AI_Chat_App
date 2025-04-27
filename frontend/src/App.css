@@ -1,0 +1,153 @@
+/* frontend/src/App.css */
+.App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .App-header h1 {
+    margin: 0;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .upload-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .file-upload h3 {
+    margin-top: 0;
+  }
+  
+  .file-upload button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .file-upload button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .file-upload .success {
+    color: green;
+  }
+  
+  .file-upload .error {
+    color: red;
+  }
+  
+  .chat-section {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .chat-window {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+  }
+  
+  .messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+  }
+  
+  .message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 80%;
+  }
+  
+  .message.user {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+  }
+  
+  .message.ai {
+    background-color: #ffffff;
+    align-self: flex-start;
+    margin-right: auto;
+    text-align: left;
+  }
+  
+  .message.system {
+    background-color: #f1f1f1;
+    color: #666;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .message.loading {
+    background-color: #f1f1f1;
+    color: #666;
+  }
+  
+  .empty-state {
+    text-align: center;
+    color: #888;
+    margin-top: 100px;
+  }
+  
+  .input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+  }
+  
+  .input-container input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .input-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .input-container button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .tools-used {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+  }
