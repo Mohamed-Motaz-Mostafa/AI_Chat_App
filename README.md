@@ -4,8 +4,8 @@ A simple RAG system useing FastAPI and React. This project allows users to uploa
 ## Overview
 This project is a simple Retrieval-Augmented Generation (RAG) system that allows users to interact with a language model through a web interface. It uses FAISS as a vector store to manage document embeddings curently using two tools: a calculator and a current date tool. The backend is built with FastAPI, while the frontend is developed using React.
 
-![Here I asked the app about my CV](Images\image.png)
-![The app will always use the calculator in math questions](Images\image-1.png)
+![Here I asked the app about my CV](Images/image.png)
+![The app will always use the calculator in math questions](Images/image-1.png)
 
 # Project Structure
 ```bash
@@ -16,7 +16,7 @@ project/
 │   ├── agent.py                # LangChain agent with tools
 │   ├── tools/
 │   │   └── calculator.py       # Calculator tool implementation
-│   |   └── currentDate.py      # Get current date tool implementation
+│   │   └── currentDate.py      # Get current date tool implementation
 │   └── requirements.txt        # Dependencies
 └── frontend/
     ├── src/
@@ -24,7 +24,7 @@ project/
     │   ├── components/
     │   │   ├── ChatWindow.js   # Chat UI component
     │   │   └── FileUpload.js   # Document upload component
-    |   |   └── DocumentList.js # Document list component
+    |   │   └── DocumentList.js # Document list component
     |   │   └── DocumentList.css # Document list styles
     │   └── api.js              # API calls to backend
     |   └── App.css             # Main styles
@@ -48,8 +48,7 @@ I highly recommend using a virtual environment to manage dependencies. You can f
 
 # Environment Variables
 You need to set the following environment variables for the backend to work properly:
-- `OPENAI_API_KEY`: Your OpenAI API key for accessing the language model.
-add this to your `.env` file in the main directory
+- `OPENAI_API_KEY`: Your OpenAI API key for accessing the language model. add this to your `.env` file in the main directory
 
 
 
