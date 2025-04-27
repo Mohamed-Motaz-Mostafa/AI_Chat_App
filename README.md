@@ -10,6 +10,7 @@ This project is a simple Retrieval-Augmented Generation (RAG) system that allows
 # Project Structure
 ```bash
 project/
+├── Chat_App_NoteBook.ipynb     # Experimentation notebook 
 ├── backend/
 │   ├── main.py                 # FastAPI app
 │   ├── rag.py                  # RAG implementation
