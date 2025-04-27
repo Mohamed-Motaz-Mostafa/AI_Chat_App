@@ -11,7 +11,9 @@ class CalculatorInput(BaseModel):
 
 class CalculatorTool(BaseTool):
     name: str = "calculator"
-    description: str = "Useful for performing mathematical calculations"
+    description: str = "Useful for performing mathematical calculations, you should always use this tool when you need to calculate anything," \
+    " no matter how simple it is."
+
     args_schema: Type[BaseModel] = CalculatorInput
     
     def _run(self, expression: str) -> str:
