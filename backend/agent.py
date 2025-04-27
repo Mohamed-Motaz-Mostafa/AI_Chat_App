@@ -5,9 +5,7 @@ from typing import List, Dict, Any
 from langchain.schema import Document
 from langchain_openai.chat_models import ChatOpenAI
 
-from langchain.tools import BaseTool
 from langchain.agents import AgentType, initialize_agent
-from langchain.prompts import ChatPromptTemplate
 from langchain.memory import ConversationBufferMemory
 # from langchain.chains import LLMChain
 
@@ -18,6 +16,10 @@ from tools.currentDate import CurrentDateTool  # or wherever you save it
 
 class AIAgent:
     def __init__(self):
+        """
+        Initialize the AI agent with the necessary tools and memory.
+        TODO: Give the user the option to choose the model and tools they want to use.
+        """
         self.llm = ChatOpenAI(temperature=0, model="gpt-4o")
         self.tools = [CalculatorTool() , CurrentDateTool()]
         self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
@@ -35,6 +37,11 @@ class AIAgent:
     async def process_query(self, query: str, context_docs: List[Document] = None) -> Dict[str, Any]:
         """
         Process a query using the RAG context and agent tools.
+        Args:
+            query (str): The user's query.
+            context_docs (List[Document], optional): List of relevant documents for context. Defaults to None.
+        returns:
+            Dict[str, Any]: A dictionary containing the response and any used tools.
         """
         try:
             # Prepare context from relevant documents
@@ -57,7 +64,6 @@ class AIAgent:
             
             # Get response from the agent
             full_response = self.agent.invoke({"input": enriched_query})
-            print("Full response from agent:", full_response)
         
         # Extract used tools from intermediate steps
             used_tools = []
